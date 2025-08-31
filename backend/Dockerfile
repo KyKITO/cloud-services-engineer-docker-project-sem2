@@ -28,6 +28,7 @@ COPY --from=builder /app/bin/app /app
 # distroless уже содержит nonroot пользователя
 USER 65532:65532
 
+# Пробрасываем порт
 EXPOSE 8081
 
 # Используем exec форму для корректной обработки сигналов
