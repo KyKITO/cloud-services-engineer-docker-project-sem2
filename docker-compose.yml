@@ -1,6 +1,7 @@
 services:
   backend:
-    build: ./backend
+    build: 
+      context: ./frontend./backend
     image: ${DOCKER_USER}/docker-project-backend:${VERSION:-latest}
     networks:
       - back_net
