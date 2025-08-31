@@ -21,7 +21,9 @@ RUN CGO_ENABLED=0 GOOS=linux go build \
     -o /app/bin/app ./cmd/api
 
 # Финальный образ - используем distroless для безопасности
-FROM gcr.io/distroless/static-debian11:nonroot
+FROM alpine:3.18
+
+RUN addgroup -S -g 65532 nonroot && adduser -S -u 65532 -G nonroot nonroot
 
 # Копируем бинарник
 COPY --from=builder /app/bin/app /app
