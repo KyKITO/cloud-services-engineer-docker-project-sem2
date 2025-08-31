@@ -4,6 +4,7 @@ FROM golang:1.21-alpine AS builder
 # Устанавливаем git для приватных модулей
 RUN apk add --no-cache git 
 
+# Рабочая директория
 WORKDIR /app
 
 # Копируем только файлы зависимостей для лучшего кэширования
